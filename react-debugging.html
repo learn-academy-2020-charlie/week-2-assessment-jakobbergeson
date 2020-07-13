@@ -27,26 +27,29 @@
         }
       }
 
-      nextMood = () => {
-        if(currentMood === moods.length - 1){
-          this.setState({ currentMood: currentMood = 0 })
-        } else {
-          this.setState({ currentMood: currentMood + 1 })
+        nextMood = () => {
+          if(this.state.currentMood === this.state.moods.length - 1){
+            this.setState({ currentMood: this.state.currentMood = 0 })
+          } else {
+            this.setState({ currentMood: this.state.currentMood + 1 })
+          }
         }
-      }
 
-      setThisMood = () => {
+
+      setThisMood = () =>
+       {
         this.setState({ setMood: this.state.moods[this.state.currentMood] })
       }
 
-      render(){
+      render() {
         return(
-            <h1>Welcome to the Mood Meter App</h1>
-            <h3>Mood Options:</h3>
+          <>
+            <h1> Welcome to the Mood Meter App </h1>
+            <h3> Mood Options: </h3>
             <p style={{fontSize: "50px"}}>
               { this.state.moods[this.state.currentMood] }
-            </p>
-            <button onClick={ }>
+              </p>
+              <button onClick={ this.nextMood }>
               Click Here For Next Mood Option
             </button>
             <h3>Save your mood here!</h3>
@@ -57,6 +60,7 @@
             <p style={{fontSize: "50px"}}>
               { this.state.setMood }
             </p>
+            </>
         )
       }
     }
